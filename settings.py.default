@@ -1,0 +1,7 @@
+# Copy to settings.py and change credentials below
+
+IMAP_HOST = 'imap.gmail.com'
+IMAP_USERNAME = 'johndoe@gmail.com'
+IMAP_PASSWORD = 'holabandolaband'
+
+TO_ADDRESS = 'holabandolaband+everclip@gmail.com'
