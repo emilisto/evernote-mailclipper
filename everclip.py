@@ -22,8 +22,11 @@ class Everclip(object):
         # Plain is given as a list - in case of multipart perhaps?
 
         plain = ' '.join(email.body['plain'])
-        links = extract_links_from_text(plain)
-        print links
+        urls = extract_urls_from_text(plain)
+        # NOTE: what to do about multiple links? include all of them? For now,
+        # just choose the first one.
+        url = urls[0]
+
         # TODO: scrape the supplied article using Goose
         # TODO: add to EverNote
 
@@ -36,7 +39,7 @@ class Everclip(object):
             # TODO: mark as read
 
 
-def extract_links_from_text(text):
+def extract_urls_from_text(text):
     '''
     Takes a chunk of text and returns a list of all HTTP links identified in it
     '''
