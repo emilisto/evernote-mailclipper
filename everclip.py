@@ -47,6 +47,8 @@ class Everclip(object):
         note = self.noteStore.createNote(note)
 
     def run(self):
+        # TODO: make this a self-running daemon that continously checks for new
+        # emails at regular intervals.
         print "Checking for new emails..."
         emails = self.get_new_emails()
         print "No. of new emails: %d" % (len(emails),)
