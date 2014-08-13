@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 import re
 
 from imbox import Imbox
