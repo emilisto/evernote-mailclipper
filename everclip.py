@@ -12,20 +12,6 @@ import settings
 from emilisto.interact import interact
 
 
-def extract_url_content(url):
-    '''Returns a tuple containing (title, plaintext_content)'''
-    goose = Goose()
-    article = goose.extract(url)
-    return article.title, article.cleaned_text
-
-
-def text_to_enml(text):
-    enml = u'<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd">'
-    enml_text = text.replace('\n', u'<br/>')
-    enml += u'<en-note>{}</en-note>'.format(enml_text)
-    return enml
-
-
 class Everclip(object):
 
     def __init__(self):
@@ -80,6 +66,21 @@ def extract_urls_from_text(text):
 
     urls = re.findall(r'(https?://[^\s]+)', text)
     return urls
+
+
+def extract_url_content(url):
+    '''Returns a tuple containing (title, plaintext_content)'''
+    goose = Goose()
+    article = goose.extract(url)
+    return article.title, article.cleaned_text
+
+
+def text_to_enml(text):
+    enml = u'<?xml version="1.0" encoding="UTF-8"?>' \
+           u'<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd">'
+    enml_text = text.replace('\n', u'<br/>')
+    enml += u'<en-note>{}</en-note>'.format(enml_text)
+    return enml
 
 
 def main():
