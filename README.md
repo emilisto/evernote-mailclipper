@@ -1,20 +1,21 @@
 # Evernote Mailclipper
 
 I store just about everything I read in EverNote but found it a bit too
-cumbersome to quickly clip URL's from iOS devices for my taste.
+cumbersome for my taste to quickly clip web pages from iOS devices.
 
-Sending articles by emails doesn't work all that way since you end up
-with a note with no more information than the title and URL.
+Sending articles by emails doesn't work all that well since you end up
+with a lot of notes with nothing more than a title and a URL.
 
-However, most apps has a "Send as email" function! EverNote Mailclipper
-will look for these emails, perform content extraction on them and add
-them as nice and fat notes in your EverNote notebook.
+Most apps, however, has a "Send as email" functionality! EverNote
+Mailclipper will look for these emails, perform content extraction on
+them and add them as nice and content-rich notes.
 
-This is faaar from, but the idea is to eventually get this up and
-running as a service on Heroku or something like it, and have it do the
-chore of scraping content for me.
+This is faaar from done and working, but the idea is to eventually get
+this up and running as a service on Heroku or something like it, and
+have it do the chore of scraping content for me.
 
-Written by Emil Stenqvist <emsten@gmail.com> and licensed under GPL.
+Written by Emil Stenqvist ([@svammel](https://twitter.com/svammel/) and
+licensed under the GPL.
 
 # Left to do before it's usable
 
