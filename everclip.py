@@ -52,8 +52,8 @@ def extract_urls_from_text(text):
     Takes a chunk of text and returns a list of all HTTP links identified in it
     '''
 
-    links = re.findall(r'(https?://[^\s]+)', text)
-    return links
+    urls = re.findall(r'(https?://[^\s]+)', text)
+    return urls
 
 
 def main():
