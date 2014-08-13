@@ -1,0 +1,2 @@
+goose-extractor==1.0.20
+imbox==0.5.5
