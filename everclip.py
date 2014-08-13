@@ -19,6 +19,13 @@ def extract_url_content(url):
     return article.title, article.cleaned_text
 
 
+def text_to_enml(text):
+    enml = u'<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd">'
+    enml_text = text.replace('\n', u'<br/>')
+    enml += u'<en-note>{}</en-note>'.format(enml_text)
+    return enml
+
+
 class Everclip(object):
 
     def __init__(self):
@@ -49,9 +56,7 @@ class Everclip(object):
         # 3. Add to EverNote
         note = Types.Note()
         note.title = title
-        content = u'<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd">'
-        content += u'<en-note>{}</en-note>'.format(text)
-        note.content = content.encode('utf8')
+        note.content = text_to_enml(text).encode('utf8')
 
         attributes = Types.NoteAttributes()
         attributes.sourceURL = url
