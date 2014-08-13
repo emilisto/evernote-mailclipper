@@ -7,8 +7,6 @@ import evernote.edam.type.ttypes as Types
 
 import settings
 
-from emilisto.interact import interact
-
 
 class Everclip(object):
 
