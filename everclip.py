@@ -2,6 +2,7 @@
 
 import re
 from imbox import Imbox
+from goose import Goose
 import settings
 
 from emilisto.interact import interact
@@ -17,19 +18,22 @@ class Everclip(object):
         emails = self.imbox.messages(sent_to=settings.TO_ADDRESS, unread=True)
         return list(emails)
 
+    def process_email(self, email):
+        # Plain is given as a list - in case of multipart perhaps?
+
+        plain = ' '.join(email.body['plain'])
+        links = extract_links_from_text(plain)
+        print links
+        # TODO: scrape the supplied article using Goose
+        # TODO: add to EverNote
+
     def run(self):
         print "Checking for new emails..."
         emails = self.get_new_emails()
         print "No. of new emails: %d" % (len(emails),)
         for id, email in emails:
-            # Plain is given as a list - in case of multipart perhaps?
-            plain = ' '.join(email.body['plain'])
-
-            links = extract_links_from_text(plain)
-            print links
-            # TODO: scrape the supplied article using Goose
+            self.process_email(email)
             # TODO: mark as read
-            # TODO: add to EverNote
 
 
 def extract_links_from_text(text):
