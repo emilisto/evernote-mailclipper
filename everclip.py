@@ -8,6 +8,13 @@ import settings
 from emilisto.interact import interact
 
 
+def extract_url_content(url):
+    '''Returns a tuple containing (title, plaintext_content)'''
+    goose = Goose()
+    article = goose.extract(url)
+    return article.title, article.cleaned_text
+
+
 class Everclip(object):
 
     def __init__(self):
@@ -27,7 +34,8 @@ class Everclip(object):
         # just choose the first one.
         url = urls[0]
 
-        # TODO: scrape the supplied article using Goose
+        title, content = extract_url_content(url)
+        print content
         # TODO: add to EverNote
 
     def run(self):
